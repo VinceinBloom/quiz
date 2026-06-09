@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizRank Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>🎯 QuizRank</h1>
+
+        <p class="subtitle">
+            Test your knowledge and climb the leaderboard.
+        </p>
+
+        <h2>Login</h2>
+
+        <form id="loginForm">
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter your username"
+                required
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <div class="show-password">
+                <input type="checkbox" id="showPassword">
+                <label for="showPassword">Show Password</label>
+            </div>
+
+            <button type="submit">
+                Login to Quiz
+            </button>
+
+        </form>
+
+        <p class="register-link">
+            Don't have an account?
+            <a href="register.html">Register Here</a>
+        </p>
+
+    </div>
+
+</div>
+
+<script src="js/auth.js"></script>
+
+<script>
+document.getElementById("showPassword").addEventListener("change", function() {
+
+    const password = document.getElementById("password");
+
+    password.type = this.checked ? "text" : "password";
+
+});
+</script>
+
+</body>
+</html>
+</html>

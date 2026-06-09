@@ -1,0 +1,67 @@
+# 🎯 QuizRank
+
+QuizRank is a frontend-based online quiz application developed using HTML, CSS, and JavaScript. Users can register, log in, take quizzes, view their scores, and check the leaderboard rankings.
+
+## Features
+
+* User Registration
+* User Login
+* Quiz Interface
+* Multiple Choice Questions
+* Question Navigation
+* Timer Functionality
+* Score Calculation
+* Results Page
+* Leaderboard
+* Retry Quiz
+* Logout Option
+* Responsive Design
+
+## Technologies Used
+
+* HTML5
+* CSS3
+* JavaScript
+* Local Storage
+
+## Project Structure
+
+```text
+QuizRank/
+
+├── index.html
+├── register.html
+├── quiz.html
+├── result.html
+├── leaderboard.html
+
+├── css/
+│   └── style.css
+
+├── js/
+│   ├── auth.js
+│   ├── quiz.js
+│   ├── timer.js
+│   ├── result.js
+│   └── leaderboard.js
+
+├── README.md
+└── .gitignore
+```
+
+## How to Run
+
+1. Download or clone the project.
+2. Open the project folder.
+3. Run `index.html` in a web browser.
+4. Register or log in.
+5. Start the quiz and view your results.
+
+## Future Improvements
+
+* Backend Integration
+* Database Support
+* Real-time Leaderboard
+* More Quiz Categories
+
+

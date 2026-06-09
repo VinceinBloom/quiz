@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizRank Results</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="card">
+
+    <h1>🏆 Quiz Results</h1>
+
+    <h3 id="playerName"></h3>
+
+    <div id="score"></div>
+
+    <br>
+
+    <div class="buttons">
+
+        <button onclick="window.location.href='quiz.html'">
+            🔄 Retry Quiz
+        </button>
+
+        <button onclick="window.location.href='leaderboard.html'">
+            🏅 Leaderboard
+        </button>
+
+    </div>
+
+    <br>
+
+    <button onclick="window.location.href='index.html'">
+        🏠 Back to Home
+    </button>
+
+</div>
+
+<script src="js/result.js"></script>
+
+<script>
+const username =
+localStorage.getItem("username") || "Player";
+
+document.getElementById("playerName").innerText =
+`Player: ${username} 👤`;
+</script>
+
+</body>
+</html>
