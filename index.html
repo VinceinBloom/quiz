@@ -6,75 +6,72 @@
     <title>QuizRank Login</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="auth-body"> <main class="container">
 
-<div class="container">
+        <div class="auth-card">
 
-    <div class="card">
+            <h1>🎯 QuizRank</h1>
 
-        <h1>🎯 QuizRank</h1>
+            <p class="subtitle">
+                Test your knowledge and climb the leaderboard.
+            </p>
 
-        <p class="subtitle">
-            Test your knowledge and climb the leaderboard.
-        </p>
+            <h2>Login</h2>
 
-        <h2>Login</h2>
+            <form id="loginForm">
 
-        <form id="loginForm">
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter your username"
+                    aria-label="Username"
+                    required
+                >
 
-            <input
-                type="text"
-                id="username"
-                placeholder="Enter your username"
-                required
-            >
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    aria-label="Email Address"
+                    required
+                >
 
-            <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                required
-            >
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    aria-label="Password"
+                    required
+                >
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                required
-            >
+                <div class="show-password">
+                    <input type="checkbox" id="showPassword">
+                    <label for="showPassword">Show Password</label>
+                </div>
 
-            <div class="show-password">
-                <input type="checkbox" id="showPassword">
-                <label for="showPassword">Show Password</label>
-            </div>
+                <button type="submit">
+                    Login to Quiz
+                </button>
 
-            <button type="submit">
-                Login to Quiz
-            </button>
+            </form>
 
-        </form>
+            <p class="register-link">
+                Don't have an account?
+                <a href="register.html">Register Here</a>
+            </p>
 
-        <p class="register-link">
-            Don't have an account?
-            <a href="register.html">Register Here</a>
-        </p>
+        </div>
 
-    </div>
+    </main>
 
-</div>
+    <script src="js/auth.js"></script>
 
-<script src="js/auth.js"></script>
-
-<script>
-document.getElementById("showPassword").addEventListener("change", function() {
-
-    const password = document.getElementById("password");
-
-    password.type = this.checked ? "text" : "password";
-
-});
-</script>
+    <script>
+    document.getElementById("showPassword").addEventListener("change", function() {
+        const password = document.getElementById("password");
+        password.type = this.checked ? "text" : "password";
+    });
+    </script>
 
 </body>
-</html>
 </html>

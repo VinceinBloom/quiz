@@ -6,96 +6,82 @@
     <title>QuizRank</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="auth-body">
 
-<div class="quiz-container">
+<div class="container">
 
-    <!-- Header -->
-    <div class="quiz-header">
+    <div class="quiz-container">
 
-        <div>
-            <h1>🎯 QuizRank</h1>
+        <div class="quiz-header">
+            <div>
+                <h1>🎯 QuizRank</h1>
+                <h3 id="welcomeUser"></h3>
+            </div>
 
-            <h3 id="welcomeUser"></h3>
+            <div class="top-buttons">
+                <button id="retryBtn" class="retry-btn">
+                    🔄 Retry
+                </button>
+                <button id="logoutBtn" class="logout-btn">
+                    🚪 Logout
+                </button>
+            </div>
         </div>
 
-        <div class="top-buttons">
-            <button id="retryBtn" class="retry-btn">
-                🔄 Retry
-            </button>
-
-            <button id="logoutBtn" class="logout-btn">
-                🚪 Logout
-            </button>
+        <div class="progress-container">
+            <div id="progress-bar"></div>
         </div>
 
+        <div id="timer">05:00</div>
+
+        <h2 id="question"></h2>
+
+        <p id="feedback"></p>
+
+        <div id="options"></div>
+
+        <div class="buttons">
+            <button onclick="previousQuestion()">⬅ Previous</button>
+            <button onclick="nextQuestion()">Next ➡</button>
+        </div>
+
+        <button id="submitBtn">
+            ✅ Submit Quiz
+        </button>
+
     </div>
 
-    
-    <div class="progress-container">
-        <div id="progress-bar"></div>
-    </div>
-
-    
-    <div id="timer">05:00</div>
-
-    
-    <h2 id="question"></h2>
-
-    
-    <p id="feedback"></p>
-
-    
-    <div id="options"></div>
-
-    
-    <div class="buttons">
-        <button onclick="previousQuestion()">⬅ Previous</button>
-        <button onclick="nextQuestion()">Next ➡</button>
-    </div>
-
-    
-    <button id="submitBtn">
-        ✅ Submit Quiz
-    </button>
-
-</div>
-
-<script src="js/quiz.js"></script>
+</div> <script src="js/quiz.js"></script>
 <script src="js/timer.js"></script>
 
 <script>
+    // 3. FIX: Safely parse identity out of the logged-in user session object
+    const sessionData = localStorage.getItem("currentUser");
+    let activeUsername = "Player";
 
-
-const username = localStorage.getItem("username");
-
-document.getElementById("welcomeUser").innerText =
-`Welcome, ${username || "Player"}! 👋`;
-
-
-
-document.getElementById("logoutBtn").onclick = function(){
-
-    if(confirm("Are you sure you want to logout?")){
-
-        localStorage.clear();
-
-        window.location.href = "index.html";
+    if (sessionData) {
+        const parsedUser = JSON.parse(sessionData);
+        activeUsername = parsedUser.username || "Player";
     }
-};
+    
+    document.getElementById("welcomeUser").innerText = `Welcome, ${activeUsername}! 👋`;
 
+    // 4. FIX: Guard against deleting the entire database on logout
+    document.getElementById("logoutBtn").onclick = function() {
+        if (confirm("Are you sure you want to logout?")) {
+            // ONLY remove the current active login state, keeping registration accounts intact
+            localStorage.removeItem("currentUser");
+            window.location.href = "index.html";
+        }
+    };
 
-
-document.getElementById("retryBtn").onclick = function(){
-
-    if(confirm("Restart the quiz?")){
-
-        localStorage.removeItem("score");
-
-        window.location.reload();
-    }
-};
-
+    // Retry handling
+    document.getElementById("retryBtn").onclick = function() {
+        if (confirm("Restart the quiz?")) {
+            localStorage.removeItem("score");
+            window.location.reload();
+        }
+    };
 </script>
 
 </body>

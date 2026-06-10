@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>QuizMaster</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="leaderboard.html">Leaderboard</a>
+                <a href="#" id="dashLogoutBtn">Logout</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h1 id="dashWelcomeText">Welcome Back!</h1>
+            </header>
+
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="card-icon blue">⭐</div>
+                    <div class="card-info">
+                        <h3>Latest Score</h3>
+                        <p id="latestScoreDisplay">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="card-icon gold">🏆</div>
+                    <div class="card-info">
+                        <h3>High Score</h3>
+                        <p id="highScoreDisplay">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-box">
+                <h2>Ready to test your knowledge?</h2>
+                <p>Challenge yourself with a quick quiz and climb the leaderboard!</p>
+                <a href="quiz.html" class="start-btn">Start Quiz</a>
+            </section>
+        </main>
+
+    </div>
+
+    <script>
+        const userSession = localStorage.getItem("username") || "Player";
+        document.getElementById("dashWelcomeText").innerText = `Welcome Back, ${userSession}!`;
+        
+        // Dynamically pull verified metric items
+        document.getElementById("latestScoreDisplay").innerText = localStorage.getItem("score") || "0";
+        document.getElementById("highScoreDisplay").innerText = localStorage.getItem("highScore") || localStorage.getItem("score") || "0";
+
+        document.getElementById("dashLogoutBtn").onclick = function(e) {
+            e.preventDefault();
+            localStorage.removeItem("username");
+            window.location.href = "index.html";
+        };
+    </script>
+</body>
+</html>

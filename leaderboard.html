@@ -1,30 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="dashboard-body">
 
-<div class="card">
+    <div class="dashboard-container">
 
-    <h1>Leaderboard</h1>
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>QuizMaster</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="leaderboard.html" class="active">Leaderboard</a>
+                <a href="#" id="leadLogoutBtn">Logout</a>
+            </nav>
+        </aside>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Rank</th>
-                <th>Name</th>
-                <th>Score</th>
-            </tr>
-        </thead>
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Leaderboard Rankings</h1>
+            </header>
 
-        <tbody id="leaderboardBody"></tbody>
-    </table>
+            <div class="quiz-container" style="width: 100%; max-width: 850px; margin: 0 auto;">
+                <table id="leaderboardTable">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </main>
 
-</div>
+    </div>
 
-<script src="js/leaderboard.js"></script>
-
+    <script src="js/leaderboard.js"></script>
+    <script>
+        document.getElementById("leadLogoutBtn").onclick = function(e) {
+            e.preventDefault();
+            localStorage.removeItem("username");
+            window.location.href = "index.html";
+        };
+    </script>
 </body>
 </html>

@@ -5,48 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizRank Results</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Center-align the scores layout specifically for the results card */
+        .score-display-wrapper h2 {
+            font-size: 48px;
+            color: #818cf8;
+            margin: 15px 0 5px;
+        }
+        .score-display-wrapper h3 {
+            font-size: 24px;
+            color: #f1f5f9;
+            margin-bottom: 25px;
+        }
+        .result-actions-flex {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .result-actions-flex .action-btn {
+            display: block;
+            text-align: center;
+            padding: 14px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 15px;
+            color: white;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .btn-blue { background-color: #6366f1; }
+        .btn-blue:hover { background-color: #818cf8; transform: translateY(-2px); }
+        .btn-gold { background-color: #f59e0b; }
+        .btn-gold:hover { background-color: #d97706; transform: translateY(-2px); }
+        .btn-dark { background-color: #334155; }
+        .btn-dark:hover { background-color: #475569; transform: translateY(-2px); }
+    </style>
 </head>
-<body>
+<body class="auth-body">
 
-<div class="card">
+    <div class="container">
+        <div class="auth-card">
+            <h1>Quiz Complete!</h1>
+            <p class="subtitle">Here is how you performed on your quiz execution run</p>
+            
+            <div id="score" class="score-display-wrapper">
+                <h2>0/25</h2>
+                <h3>0%</h3>
+            </div>
 
-    <h1>🏆 Quiz Results</h1>
-
-    <h3 id="playerName"></h3>
-
-    <div id="score"></div>
-
-    <br>
-
-    <div class="buttons">
-
-        <button onclick="window.location.href='quiz.html'">
-            🔄 Retry Quiz
-        </button>
-
-        <button onclick="window.location.href='leaderboard.html'">
-            🏅 Leaderboard
-        </button>
-
+            <div class="result-actions-flex">
+                <a href="quiz.html" class="action-btn btn-blue">🔄 Retry Quiz</a>
+                <a href="leaderboard.html" class="action-btn btn-gold">🏆 View Leaderboard</a>
+                <a href="dashboard.html" class="action-btn btn-dark">🏠 Back to Home Dashboard</a>
+            </div>
+        </div>
     </div>
 
-    <br>
-
-    <button onclick="window.location.href='index.html'">
-        🏠 Back to Home
-    </button>
-
-</div>
-
-<script src="js/result.js"></script>
-
-<script>
-const username =
-localStorage.getItem("username") || "Player";
-
-document.getElementById("playerName").innerText =
-`Player: ${username} 👤`;
-</script>
-
+    <script src="js/result.js"></script>
+    <script>
+        // Update local high score tracking automatically on result layout generation
+        const localCurrentScore = Number(localStorage.getItem("score")) || 0;
+        const localPastHighScore = Number(localStorage.getItem("highScore")) || 0;
+        if (localCurrentScore > localPastHighScore) {
+            localStorage.setItem("highScore", localCurrentScore);
+        }
+    </script>
 </body>
 </html>
