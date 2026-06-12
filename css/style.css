@@ -1,6 +1,3 @@
-/* ==========================================
-   1. GLOBAL RESET & BASE VARIABLES
-   ========================================== */
 :root {
     --bg-primary: #f4f6f9;
     --bg-sidebar: #1e1e2f;
@@ -14,7 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
@@ -22,9 +19,6 @@ body {
     min-height: 100vh;
 }
 
-/* ==========================================
-   2. AUTHENTICATION PAGES (Login / Register)
-   ========================================== */
 .auth-body {
     display: flex;
     justify-content: center;
@@ -40,20 +34,18 @@ body {
     align-items: center;
 }
 
-/* FIX: Renamed from .card to .auth-card to prevent dashboard collision */
 .auth-card {
     background: #1e293b;
     color: white;
     padding: 35px;
     border-radius: 20px;
-    width: 450px; /* Expanded slightly to perfectly fit elements without bursting */
+    width: 450px;
     max-width: 100%;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
-    animation: fadeIn .5s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 0.5s ease;
 }
 
-/* Added Flex layout to ensure your internal split-screens do not overflow */
 .auth-card form {
     display: flex;
     flex-direction: column;
@@ -69,14 +61,12 @@ body {
     margin-bottom: 20px;
 }
 
-/* ACCESSIBILITY FIX: Brightened from #cbd5e1 to near-white for high-contrast on dark backgrounds */
 .subtitle {
     color: #f1f5f9;
     margin-bottom: 20px;
     font-size: 14px;
 }
 
-/* Form Fields */
 input {
     width: 100%;
     padding: 14px;
@@ -88,7 +78,6 @@ input {
     font-size: 15px;
 }
 
-/* ACCESSIBILITY FIX: Lightened from #94a3b8 to crisp gray so placeholder text is clearly readable */
 input::placeholder {
     color: #e2e8f0;
 }
@@ -107,7 +96,7 @@ button {
     cursor: pointer;
     font-size: 15px;
     font-weight: bold;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 button:hover {
@@ -115,7 +104,6 @@ button:hover {
     transform: translateY(-2px);
 }
 
-/* ACCESSIBILITY FIX: Changed to a high-contrast sky blue and forced underline for clear visibility */
 a {
     color: #93c5fd;
     text-decoration: underline;
@@ -126,7 +114,6 @@ a:hover {
     text-decoration: underline;
 }
 
-/* ACCESSIBILITY FIX: Lightened text wrapper color to pass contrast ratio formulas */
 .show-password {
     display: flex;
     align-items: center;
@@ -140,15 +127,11 @@ a:hover {
     margin: 0;
 }
 
-/* ACCESSIBILITY FIX: Lightened text wrapper color */
 .register-link {
     margin-top: 15px;
     color: #f1f5f9;
 }
 
-/* ==========================================
-   3. DASHBOARD PAGE HUBS (UNTOUCHED ORIGINAL)
-   ========================================== */
 .dashboard-body {
     background-color: var(--bg-primary);
     min-height: 100vh;
@@ -159,7 +142,6 @@ a:hover {
     min-height: 100vh;
 }
 
-/* Sidebar Layout */
 .sidebar {
     width: 240px;
     background-color: var(--bg-sidebar);
@@ -192,12 +174,12 @@ a:hover {
     transition: 0.3s;
 }
 
-.nav-menu a:hover, .nav-menu a.active {
+.nav-menu a:hover,
+.nav-menu a.active {
     background-color: var(--accent-color);
     color: var(--text-light);
 }
 
-/* Main Content Wrapper */
 .main-content {
     flex: 1;
     padding: 30px;
@@ -215,7 +197,6 @@ a:hover {
     color: var(--text-dark);
 }
 
-/* Grid Configuration */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -223,7 +204,6 @@ a:hover {
     margin-bottom: 40px;
 }
 
-/* FIX: Renamed from .card to .stat-card to prevent layout distortion */
 .stat-card {
     background: var(--card-bg);
     padding: 20px;
@@ -231,7 +211,7 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .card-icon {
@@ -244,13 +224,29 @@ a:hover {
     font-size: 20px;
 }
 
-.blue { background-color: #e8f0fe; color: #1a73e8; }
-.gold { background-color: #fef7e0; color: #f4b400; }
+.blue {
+    background-color: #e8f0fe;
+    color: #1a73e8;
+}
 
-.card-info h3 { margin: 0; font-size: 14px; color: #777; }
-.card-info p { margin: 5px 0 0; font-size: 24px; font-weight: bold; color: var(--text-dark); }
+.gold {
+    background-color: #fef7e0;
+    color: #f4b400;
+}
 
-/* Call to Action Banner */
+.card-info h3 {
+    margin: 0;
+    font-size: 14px;
+    color: #777;
+}
+
+.card-info p {
+    margin: 5px 0 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
 .cta-box {
     background: linear-gradient(135deg, #5e50f9, #6c5ce7);
     color: white;
@@ -274,20 +270,17 @@ a:hover {
 
 .start-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ==========================================
-   4. QUIZ ENGINE RUNNER & LEADERBOARD
-   ========================================== */
 .quiz-container {
     background: #1e293b;
     color: white;
     padding: 35px;
     border-radius: 20px;
     width: 750px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.4);
-    animation: fadeIn .5s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 0.5s ease;
 }
 
 .quiz-container h1 {
@@ -296,7 +289,6 @@ a:hover {
     color: #818cf8;
 }
 
-/* ACCESSIBILITY FIX: Lightened text color for dark layout context */
 #welcomeUser {
     color: #f1f5f9;
     font-size: 16px;
@@ -356,7 +348,7 @@ a:hover {
     height: 100%;
     width: 0%;
     background: #6366f1;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 #question {
@@ -402,7 +394,6 @@ a:hover {
     background: #16a34a;
 }
 
-/* Leaderboard Tables */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -414,7 +405,8 @@ th {
     color: white;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #475569;
     padding: 12px;
     text-align: center;
@@ -424,26 +416,20 @@ tr:nth-child(even) {
     background: #334155;
 }
 
-/* ==========================================
-   5. ANIMATIONS & RESPONSIVE QUERIES
-   ========================================== */
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-@media(max-width:768px) {
-    .auth-card {
-        width: 100%;
-        padding: 25px;
-    }
-
+@media (max-width: 768px) {
+    .auth-card,
     .quiz-container {
         width: 100%;
         padding: 25px;

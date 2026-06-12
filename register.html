@@ -1,33 +1,67 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizRank Register</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="auth-body">
 
-<div class="container">
-    <div class="card">
-        <h1>QuizRank</h1>
+```
+<main class="container">
+
+    <div class="auth-card">
+
+        <h1>🎯 QuizRank</h1>
+
+        <p class="subtitle">
+            Create an account and start your quiz journey.
+        </p>
+
         <h2>Register</h2>
 
         <form id="registerForm">
-          <input type="text" id="username" placeholder="Enter your name" required>
 
-            <input type="email" id="regEmail" placeholder="Email" required>
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter your username"
+                aria-label="Username"
+                required
+            >
 
-            <input type="password" id="regPassword" placeholder="Password" required>
+            <input
+                type="email"
+                id="regEmail"
+                placeholder="Enter your email"
+                aria-label="Email Address"
+                required
+            >
 
-            <button type="submit">Register</button>
+            <input
+                type="password"
+                id="regPassword"
+                placeholder="Enter your password"
+                aria-label="Password"
+                required
+            >
+
+            <button type="submit">
+                Create Account
+            </button>
+
         </form>
 
-        <p>
+        <p class="register-link">
             Already have an account?
-            <a href="index.html">Login</a>
+            <a href="index.html">Login Here</a>
         </p>
+
     </div>
-</div>
+
+</main>
 
 <script src="js/auth.js"></script>
 
